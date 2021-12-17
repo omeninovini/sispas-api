@@ -1,6 +1,5 @@
-package br.com.vinicius.sispas.modules.cliente.entities;
+package br.com.vinisystem.sispas.modules.cliente.entities;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -21,22 +20,22 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @Entity
-@Table(name = "TbTelefone")
-public class Telefone {
+@Table(name = "TbPhones")
+public class Phone {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
-    private String numero;
+    private String number;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cliente_id")
-    private Cliente cliente;
+    private Client client;
 
-    public Telefone( String telefone, Cliente cliente) {
-        this.numero = telefone;
-        this.cliente = cliente;
+    public Phone(String number, Client client) {
+        this.number = number;
+        this.client = client;
     }   
 }

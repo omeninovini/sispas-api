@@ -1,4 +1,4 @@
-package br.com.vinicius.sispas.modules.cliente.entities;
+package br.com.vinisystem.sispas.modules.cliente.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,32 +14,31 @@ import lombok.ToString;
 
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
 @ToString
 @Entity
-@Table(name = "TbEndereco")
-public class Endereco {
+@Table(name = "TBAddresses")
+public class Address {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
-    private String rua;
+    private String street;
     
     @Column
-    private String bairro;
+    private String district;
     
     @Column
-    private String numero;
+    private String number;
     
     @Column
-    private String referencia;
+    private String reference;
 
-    public Endereco(String rua, String bairro, String numero, String referencia) {
-        this.rua = rua;
-        this.bairro = bairro;
-        this.numero = numero;
-        this.referencia = referencia;
+    public Address(String street, String district, String number, String reference) {
+        this.street = street;
+        this.district = district;
+        this.number = number;
+        this.reference = reference;
     }
 }

@@ -1,4 +1,4 @@
-package br.com.vinicius.sispas;
+package br.com.vinisystem.sispas;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

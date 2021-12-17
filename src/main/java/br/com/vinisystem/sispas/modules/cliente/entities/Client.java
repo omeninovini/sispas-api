@@ -1,6 +1,7 @@
-package br.com.vinicius.sispas.modules.cliente.entities;
+package br.com.vinisystem.sispas.modules.cliente.entities;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -23,30 +24,26 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @Entity
-@Table(name = "TbCliente")
-public class Cliente {
+@Table(name = "TbClients")
+public class Client {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
     @Column
-    private String nome;
+    private String name;
     
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "endereco_id")
-    private Endereco endereco;
+    @JoinColumn(name = "address_id")
+    private Address address;
 
-    @OneToMany(mappedBy = "cliente", cascade = CascadeType.PERSIST)
-    private List<Telefone> telefones;
+    @OneToMany(mappedBy = "client", cascade = CascadeType.PERSIST)
+    private List<Phone> phones;
 
-    public Cliente(String nome, Endereco endereco) {
-        this.nome = nome;
-        this.endereco = endereco;
+    public Client(String name, Address address, List<String> phones) {
+        this.name = name;
+        this.address = address;
+        this.phones = phones.stream().map(number -> (new Phone(number, this))).collect(Collectors.toList());
     }
-
-    public void setTelefones(List<Telefone> telefones) {
-        this.telefones = telefones;
-    }
-
 }

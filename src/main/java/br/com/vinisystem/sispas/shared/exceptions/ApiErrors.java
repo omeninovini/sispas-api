@@ -1,4 +1,4 @@
-package br.com.vinicius.sispas.shared.exceptions;
+package br.com.vinisystem.sispas.shared.exceptions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,14 +12,14 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ApiErrors {
     
-    List<String> erros = new ArrayList<>();
+    List<String> errors = new ArrayList<>();
 
     public ApiErrors (List<String> errors) {
-        this.erros = errors;
+        this.errors = errors;
     }
 
     public ApiErrors (String message) {
-        this.erros.add(message);
+        this.errors.add(message);
     }
 
 }
